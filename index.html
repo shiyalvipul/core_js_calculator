@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="container" class="container">
+      <div>
+        <h1 class="calc-title">Calculator</h1>
+      </div>
+      <div class="outer-display">
+        <div id="expression" class="expression"></div>
+      </div>     
+      
+      <div id="standard-buttons" class="container-fluid standard-buttons">
+        <div class="row button-row">
+          <div class="col-sm-1">
+            <button id="num-7" class="btn " title="7" onclick="onBtnClick('7')">7</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="num-8"  class="btn " title="8" onclick="onBtnClick('8')">8</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="num-9"  class="btn " title="9" onclick="onBtnClick('9')">9</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="op-divide" class="btn" title="Divide" onclick="onBtnClick('÷')">÷</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="clear" class="btn button-orange" title="Clear all" onclick="onBtnClick('clear')">C</button>
+          </div>
+        </div>
+        <div class="row button-row">
+          <div class="col-xs-1">
+            <button id="num-4"  class="btn " title="4" onclick="onBtnClick('4')">4</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="num-5"  class="btn " title="5" onclick="onBtnClick('5')">5</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="num-6"  class="btn " title="6" onclick="onBtnClick('6')">6</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="op-multiply" class="btn" title="Multiply" onclick="onBtnClick('x')">x</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="delete" class="btn button-orange" title="Delete" onclick="onBtnClick('delete')">DEL</button>
+          </div>
+        </div>
+        <div class="row button-row">
+          <div class="col-xs-1">
+            <button id="num-1"  class="btn " title="1" onclick="onBtnClick('1')">1</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="num-2"  class="btn " title="2" onclick="onBtnClick('2')">2</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="num-3"  class="btn " title="3" onclick="onBtnClick('3')">3</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="op-subtract" class="btn" title="Subtract" onclick="onBtnClick('-')">-</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="equals" class="btn button-blue" title="Equals" onclick="onBtnClick('equals')">=</button>
+          </div>
+        </div>
+        <div class="row button-row">
+          <div class="col-xs-1">
+            <button id="period" class="btn" title="Decimal point" onclick="onBtnClick('period')">.</button>
+          </div>
+          <div class="col-xs-1">
+            <button id="num-0" class="btn  custome-width" title="0" onclick="onBtnClick('0')">0</button>
+          </div>
+          <div class="col-xs-2">
+            <button id="op-add" class="btn plus-btn" title="Add" onclick="onBtnClick('+')">+</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </body>
+  
+  <script src="assets/calculations.js"></script>
+
+</html>

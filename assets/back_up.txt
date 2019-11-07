@@ -1,0 +1,87 @@
+
+let operators = ['÷','x',,'+','-'];
+let tokenList = [];
+const addToken = token => {
+  if(isNaN(token)) {
+    if(!tokenList[tokenList.length - 1] && token === '-'){
+      tokenList.push(token);
+    }
+    else if (tokenList[tokenList.length - 1]) {
+      let lastChar = tokenList[tokenList.length - 1];
+      if(!isNaN(tokenList[tokenList.length - 1]) && operators.indexOf(lastChar) == -1){
+         tokenList.push(token);
+      }
+    }
+  } 
+  else {
+    if(!isNaN(tokenList[tokenList.length - 1])) {
+      tokenList[tokenList.length - 1] = tokenList[tokenList.length - 1] + token;
+    } else {
+      tokenList.push(token);
+    }
+  }  
+  displayEquation();
+}
+
+let expString ='';
+const displayEquation = () => {
+let htmlString = "";
+  for(var i = 0; i < tokenList.length; i++) {
+    if(isNaN(tokenList[i])) {
+        htmlString += tokenList[i];
+    } else {
+      htmlString += tokenList[i];
+    }
+  }
+  document.querySelector('#expression').innerHTML = htmlString;
+  expString = htmlString;
+}
+
+const deleteLast = () => {
+  if(isNaN(tokenList[tokenList.length - 1]) || tokenList[tokenList.length - 1] === '') {
+    tokenList.pop();
+  } else {
+    tokenList[tokenList.length - 1] = tokenList[tokenList.length - 1].slice(0, -1);
+  }
+  displayEquation();
+}
+
+const calculate = () => {
+ expString = expString.replace(/x/g, '*').replace(/÷/g, '/');
+ let result = eval(expString);
+ document.querySelector('#expression').innerHTML = result;
+ tokenList.length = 0;
+ tokenList[0] = result;
+}
+
+const processButton = (btnValue) => {
+  switch(btnValue) {
+    case "delete":
+      deleteLast();
+      break;
+    case "clear":
+        tokenList.length = 0;
+        displayEquation();
+      break;
+    case "period":
+      if(isNaN(tokenList[tokenList.length - 1])) {
+        addToken("0.");
+      } else {
+        if(tokenList[tokenList.length - 1].indexOf(".") === -1) {
+          tokenList[tokenList.length - 1] += ".";
+        }
+      }
+      displayEquation();
+      break;
+    case "equals":
+      calculate();
+      break;
+    default:
+        addToken(btnValue);
+  }
+}
+
+const onBtnClick = (btnValue) => {
+  processButton(btnValue);
+}
+
